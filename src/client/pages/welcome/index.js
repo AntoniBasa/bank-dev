@@ -20,17 +20,17 @@ const WelcomePage = () => {
     const classes = useStyles();
 
     return (
-        <div style={{width:"100%",height:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"space-evenly"}}>
-            <h1 style={{color:"#1B2B39",fontWeight:"700",fontSize:"300%",textAlign:"center",margin:"0"}}>Welcome to banking!</h1>
+        <div className="welcomePage-container">
+            <h1 className="welcomeText">Welcome to banking!</h1>
 
-            <div style={{width:"32%",display:"flex",justifyContent:"space-between",flexWrap:"wrap",justifyContent:"center"}}>
+            <div className="tagline-container">
             
-            <p style={{color:"#00886C",fontWeight:"700",fontSize:"200%",margin:"0"}}>CityBank</p>
+            <p className="welcomeLogo">CityBank</p>
            
-            <p style={{color:"#2D4954",fontWeight:"500",fontSize:"200%",textAlign:"center",margin:"0",minWidth:"273px"}}>- more than bank.</p>
+            <p className="tagline">- more than bank.</p>
             </div>
 
-            <div style={{width:"22%",display:"flex",flexWrap:"wrap",justifyContent:"center"}}>
+            <div className="button-container">
              <Button component={Link} to="/becomeclient"
                     variant="contained"
                     color="primary"

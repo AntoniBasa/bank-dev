@@ -8,6 +8,8 @@ import Root from './client/Root';
 import UserContext from './client/context';
 import UserService from './client/services/auth.service';
 
+import './client/styles';
+
 
 const userService = new UserService();
 

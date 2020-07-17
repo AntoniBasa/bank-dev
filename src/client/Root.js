@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Switch, Route, Link, useLocation} from 'react-router-dom';
-import {BottomNavigation, BottomNavigationAction} from "@material-ui/core";
-import {CreditCard, Home, EuroSymbol, EmojiPeople} from '@material-ui/icons';
+import React, { useContext, useEffect, useState } from 'react';
+import { Switch, Route, Link, useLocation } from 'react-router-dom';
+import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
+import { CreditCard, Home, EuroSymbol, EmojiPeople } from '@material-ui/icons';
 
 import clientPrivate from './hoc/client-private';
 import UserContext from './context';
@@ -26,7 +26,7 @@ const Root = () => {
 
     const userService = useContext(UserContext);
 
-    const {pathname} = useLocation();
+    const { pathname } = useLocation();
     const currentValueFromPath = pathname.split('/')[1];
 
     const [value, setValue] = useState(currentValueFromPath);
@@ -47,15 +47,18 @@ const Root = () => {
     }, []);
 
     return (
-        <div style={{ margin: "0", height: "100%" }}>
-
-            <main style={{ width: "100%", height: "80%" }}>
+        <div className="root-container">
+            <div className="header">
+                <p className="header-logo">CityBank</p>
+                <hr className="header-logo-line" />
+            </div>
+            <main className="main-slyles">
                 <Switch>
                     <Route path="/welcome" exact component={WelcomePage} />
-                    <Route path="/transfers" exact component={clientPrivate(TransfersPage)}/>
-                    <Route path="/currency-exchange" exact component={clientPrivate(CurrencyExchangePage)}/>
-                    <Route path="/account" exact component={clientPrivate(AccountPage)}/>
-                    <Route path="/" exact component={clientPrivate(HomePage)}/>
+                    <Route path="/transfers" exact component={clientPrivate(TransfersPage)} />
+                    <Route path="/currency-exchange" exact component={clientPrivate(CurrencyExchangePage)} />
+                    <Route path="/account" exact component={clientPrivate(AccountPage)} />
+                    <Route path="/" exact component={clientPrivate(HomePage)} />
                     <Route path="/signin" exact component={Signin} />
                     <Route path="/becomeclient" exact component={BecomeClient} />
                     <Route path="*" exact component={NotFoundPage} />
@@ -63,8 +66,8 @@ const Root = () => {
                 </Switch>
             </main>
             {userService.user &&
-                <footer style={{ width: "100%", height: "20%", position: "fixed", bottom: "0" }}>
-                    <BottomNavigation value={value} onChange={handleChange} style={{ backgroundColor: "#1B2B39", width: "100%", borderTopRightRadius: "15px", borderTopLeftRadius: "15px", position: "fixed", bottom: "0" }}>
+                <footer className="footer-styles">
+                    <BottomNavigation value={value} onChange={handleChange} style={{backgroundColor: "#1B2B39", width: "100%",borderTopRightRadius:"15px",borderTopLeftRadius: "15px", position: "fixed", bottom: "0"}}>
                         <BottomNavigationAction component={Link} to="/" showLabel={false} label="Home" value="home" icon={<Home />} />
                         <BottomNavigationAction component={Link} to="/transfers" showLabel={false} label="Transfers" value="transfers" icon={<CreditCard />} />
                         <BottomNavigationAction component={Link} to="/currency-exchange" showLabel={false} label="Currency Exchange" value="currency" icon={<EuroSymbol />} />

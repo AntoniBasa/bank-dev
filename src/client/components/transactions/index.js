@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SingleTransModul from './singleTransModul.js'
 const Transactions = () => {
     const transactions = [
         {
@@ -21,6 +21,7 @@ const Transactions = () => {
     ]
     return (
         <div>
+            <SingleTransModul/>
             <ul style={{margin:"0"}}>
                 {transactions.map(transaction => (
                     <li key={transaction.id}>

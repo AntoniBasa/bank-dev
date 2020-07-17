@@ -7,7 +7,7 @@ import Wallet from '../../components/wallet';
 import Spendings from '../../components/spendings';
 
 const HomePage = () => {
-    const authenticated = false;
+    const authenticated = true;
 
     if(!authenticated) return <WelcomePage/>;
     return (
