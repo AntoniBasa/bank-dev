@@ -9,14 +9,16 @@ import Spendings from '../../components/spendings';
 const HomePage = () => {
     const authenticated = true;
 
-    if(!authenticated) return <WelcomePage/>;
+    if (!authenticated) return <WelcomePage />;
     return (
         <div>
-           <main>
-               <Transactions />
-               <Wallet />
-               <Spendings />
-           </main>
+            <main className="homePage-main">
+                <Transactions />
+                <div className="homePage-walletWrapper">
+                    <Wallet />
+                    <Spendings />
+                </div>
+            </main>
         </div>
     );
 };

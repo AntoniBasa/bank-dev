@@ -20,7 +20,7 @@ const Transactions = () => {
         }
     ]
     return (
-        <div>
+        <div className="transactions-wrapper">
             <SingleTransModul/>
             <ul style={{margin:"0"}}>
                 {transactions.map(transaction => (

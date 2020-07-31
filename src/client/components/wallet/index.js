@@ -2,7 +2,7 @@ import React from 'react';
 
 const Wallet = () => {
     return (
-        <div>
+        <div className="wallet-wrapper">
             Wallet
         </div>
     );

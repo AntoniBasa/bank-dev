@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
 
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
+require('./routes/card.routes')(app);
 
 const PORT = process.env.PORT || 3001;
 
@@ -84,14 +85,13 @@ function initial() {
     try {
         // firstly db connects
         // then server starts
-        app.listen(PORT, () => {
+        app.listen (PORT, () => {
             console.log(`Server has been started and is running on port ${PORT}`);
         });
     } catch (e) {
         console.log(e);
     }
 }
-
 
 
 
