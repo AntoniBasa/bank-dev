@@ -61,7 +61,7 @@ export default class AuthServices {
             console.log('signed in');
             return this.user;
         }
-
+        return response
         console.log('response error:', response);
         // throw new Error(response.status);
     }

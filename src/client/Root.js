@@ -13,12 +13,14 @@ import HomePage from './pages/home';
 import TransfersPage from './pages/transfers';
 import CurrencyExchangePage from './pages/currency-exchange';
 import AccountPage from './pages/account';
+import ToCard from './components/to-card';
+import TopUpCard from './components/top-up-card'
+
 import NotFoundPage from './pages/404';
 
 
 import Signin from './components/signin';
 import BecomeClient from './components/become-client';
-
 
 const Root = () => {
 
@@ -46,7 +48,8 @@ const Root = () => {
         // });
     }, []);
 
-    return (
+    
+      return (
         <div className="root-container">
             <div className="header">
                 <p className="header-logo">CityBank</p>
@@ -61,17 +64,27 @@ const Root = () => {
                     <Route path="/" exact component={clientPrivate(HomePage)} />
                     <Route path="/signin" exact component={Signin} />
                     <Route path="/becomeclient" exact component={BecomeClient} />
+                    <Route path="/to-card" exact component={ToCard} />
+                    <Route path="/top-up-card" exact component={TopUpCard} />
                     <Route path="*" exact component={NotFoundPage} />
 
                 </Switch>
             </main>
             {userService.user &&
                 <footer className="footer-styles">
-                    <BottomNavigation value={value} onChange={handleChange} style={{backgroundColor: "#1B2B39", width: "100%",borderTopRightRadius:"15px",borderTopLeftRadius: "15px", position: "fixed", bottom: "0"}}>
-                        <BottomNavigationAction component={Link} to="/" showLabel={false} label="Home" value="home" icon={<Home />} />
-                        <BottomNavigationAction component={Link} to="/transfers" showLabel={false} label="Transfers" value="transfers" icon={<CreditCard />} />
-                        <BottomNavigationAction component={Link} to="/currency-exchange" showLabel={false} label="Currency Exchange" value="currency" icon={<EuroSymbol />} />
-                        <BottomNavigationAction component={Link} to="/account" showLabel={false} label="Account" value="nearby" icon={<EmojiPeople />} />
+                    <BottomNavigation value={value} onChange={handleChange}
+                        style={{
+                            backgroundColor: "#1B2B39",
+                            width: "100%",
+                            borderTopRightRadius: "15px",
+                            borderTopLeftRadius: "15px",
+                            position: "fixed",
+                            bottom: "0"
+                        }}>
+                        <BottomNavigationAction style={{color:"#8dcfb3"}} component={Link} to="/" showLabel={false} label="Home" value="home" icon={<Home />} />
+                        <BottomNavigationAction style={{color:"#8dcfb3"}} component={Link} to="/transfers" showLabel={false} label="Transfers" value="transfers" icon={<CreditCard />} />
+                        <BottomNavigationAction style={{color:"#8dcfb3"}} component={Link} to="/currency-exchange" showLabel={false} label="Currency Exchange" value="currency" icon={<EuroSymbol />} />
+                        <BottomNavigationAction style={{color:"#8dcfb3"}} component={Link} to="/account" showLabel={false} label="Account" value="nearby" icon={<EmojiPeople />} />
                     </BottomNavigation>
                 </footer>
             }
